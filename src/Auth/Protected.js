@@ -1,29 +1,26 @@
 import React from 'react'
-import { Route,useNavigate}from 'react-router-dom'
+import { Route,Navigate}from 'react-router-dom'
 
 
-const Protected=({component , ...rest})=> {
+const Protected=({ component , ...rest})=> {
   console.log("componenet", component);
-const   navigate=useNavigate()
+
+
+
     let RenderComponent=component;
     let hasToken=JSON.parse(localStorage.getItem('auth'))
 
   return (
-      <Route
-      {...rest}
-
-      render={props =>{ 
-        
-        if(hasToken!==null){
-        return  <RenderComponent {...props}/>
-
-      }else{
-
-        return  navigate('/login')
-      }
-    }}
+<Route
+         {...rest}
+         render={(props) =>
+        hasToken!==null ?  (<RenderComponent {...props} />) :( <Navigate  to="/login" />)
+         }
+       />
       
-      />
+  
+      
+
 
  
   )
