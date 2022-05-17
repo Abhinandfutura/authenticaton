@@ -3,7 +3,7 @@ import {useFormik} from 'formik'
 import * as yup  from 'yup'
 import axios from 'axios'
 import {toast} from 'react-toastify';
-import{useNavigate } from'react-router-dom'
+import{useNavigate,Link } from'react-router-dom'
 
 //npm i react-toastify
 function Register() {
@@ -153,6 +153,13 @@ const formik = useFormik({
 
 <button className="btn btn-primary">SUBMIT</button>
 
+<div>
+          <Link to="/login"  className="text-secondary"
+          style={{
+            textDecoration:'none',
+            marginLeft:'80%',
+            fontWeight:'600'}}>LOGIN</Link>
+          </div>
       </form>
   </div>
     </div>

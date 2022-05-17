@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 //npm i react-toastify
 function Login() {
@@ -35,7 +35,7 @@ function Login() {
 
           localStorage.setItem('auth',JSON.stringify(res.data))
               navigate("/home");
-        })
+        }) 
 
         // toast.success('LoggedIn Successfully !')
 
@@ -93,6 +93,13 @@ function Login() {
 
        
           <button className="btn btn-primary">SUBMIT</button>
+          <div>
+          <Link to="/register"  className="text-secondary"
+          style={{
+            textDecoration:'none',
+            marginLeft:'80%',
+            fontWeight:'600'}}>REGISTER</Link>
+          </div>
         </form>
       </div>
     </div>
